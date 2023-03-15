@@ -31,9 +31,17 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
 fleet:
-  topic:
-    tracking-topic: geolocation-tracker
-    notification-topic: notification
+  route-evaluation:
+    baseUrl:
+      route-details: http://localhost:9051
+    producer:
+      retry-count: 3
+      topic:
+        notification-topic: notification
+    consumer:
+      retry-count: 3
+      topic:
+        tracking-topic: geolocation-tracker
 
 ---
 spring:
