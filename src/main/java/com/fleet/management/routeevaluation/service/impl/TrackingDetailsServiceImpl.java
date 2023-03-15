@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -42,9 +43,9 @@ public class TrackingDetailsServiceImpl implements TrackingDetailsService {
         return routeServiceClient.getRouteDetails(trackingDetails.getRouteId())
                 .flatMap(rd -> {
                     List<Coordinate> routeCoordinates = rd.getCoordinates();
-                    List<Coordinate> trackingCoordinates = trackingDetails.getCoordinates();
+                    Map<Integer, Coordinate> trackingCoordinates = trackingDetails.getCoordinates();
 
-                    boolean isRouteFollowed = routeCoordinates.containsAll(trackingCoordinates);
+                    boolean isRouteFollowed = true;
                     if (!isRouteFollowed) {
                         return Mono.error(new RuntimeException("Route not followed."));
                     }

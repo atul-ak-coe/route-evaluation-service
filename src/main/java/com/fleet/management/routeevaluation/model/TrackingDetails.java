@@ -2,7 +2,7 @@ package com.fleet.management.routeevaluation.model;
 
 import lombok.*;
 
-import java.util.List;
+import java.util.Map;
 
 @Setter
 @Getter
@@ -26,5 +26,5 @@ public class TrackingDetails {
 
     private Double speedRate;
 
-    private List<Coordinate> coordinates;
+    private Map<Integer, Coordinate> coordinates;
 }

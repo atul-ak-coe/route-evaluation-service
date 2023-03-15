@@ -25,7 +25,7 @@ spring:
                 headers: false
             value:
               default:
-                type: com.fleet.management.tracking.model.TrackingDetails
+                type: com.fleet.management.routeevaluation.model.TrackingDetails
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
