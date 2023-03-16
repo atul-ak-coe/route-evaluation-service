@@ -53,8 +53,7 @@ public class ConsumerService implements CommandLineRunner {
                     ReceiverRecordException ex = (ReceiverRecordException) err.getCause();
                     log.error("Retries exhausted for " + ex.getReceiverRecord().value());
                     ex.getReceiverRecord().receiverOffset().acknowledge();
-                })
-                .doOnError(throwable -> log.error("something bad happened while consuming : {}", throwable.getMessage()));
+                });
     }
 
     @Override
